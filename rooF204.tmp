@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsnu0y1e4v06s"]
+
+[ext_resource type="Script" path="res://main_character.gd" id="1_xurvx"]
+[ext_resource type="Texture2D" uid="uid://bx7e7ocukimnj" path="res://icon.svg" id="2_385m5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qe8ja"]
+size = Vector2(123, 108)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qpol2"]
+radius = 18.0
+height = 36.0
+
+[node name="root" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(184, 136)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_qe8ja")
+
+[node name="Icon" type="Sprite2D" parent="Area2D/CollisionShape2D"]
+texture = ExtResource("2_385m5")
+
+[node name="MainCharacter" type="CharacterBody2D" parent="."]
+position = Vector2(419, 217)
+motion_mode = 1
+script = ExtResource("1_xurvx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainCharacter"]
+shape = SubResource("CapsuleShape2D_qpol2")
+
+[node name="Icon" type="Sprite2D" parent="MainCharacter"]
+position = Vector2(1, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_385m5")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="EnergyLabel" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Energy"
+
+[node name="FoodLabel" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Food"

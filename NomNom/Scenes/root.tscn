@@ -1,0 +1,106 @@
+[gd_scene load_steps=8 format=3 uid="uid://dsnu0y1e4v06s"]
+
+[ext_resource type="Texture2D" uid="uid://begtuo3pyfnnt" path="res://NomNom/Assets/garden_background.png" id="1_okqt0"]
+[ext_resource type="Script" path="res://NomNom/Scripts/main_character.gd" id="1_xurvx"]
+[ext_resource type="Texture2D" uid="uid://bx7e7ocukimnj" path="res://Other/icon.svg" id="2_385m5"]
+[ext_resource type="Script" path="res://NomNom/Scripts/game_manager.gd" id="4_brpja"]
+[ext_resource type="PackedScene" uid="uid://wem6t7m0pqey" path="res://NomNom/Scenes/resource_area.tscn" id="4_mppop"]
+[ext_resource type="Script" path="res://NomNom/Scripts/canvas_layer.gd" id="5_yiiw1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pmgx0"]
+size = Vector2(70, 70)
+
+[node name="root" type="Node2D"]
+
+[node name="Map" type="Node2D" parent="."]
+position = Vector2(1243, 145)
+
+[node name="BackgroundImage" type="Sprite2D" parent="Map"]
+scale = Vector2(5, 5)
+texture = ExtResource("1_okqt0")
+
+[node name="FoodAreas" type="Node" parent="Map"]
+
+[node name="ResourceArea" parent="Map/FoodAreas" instance=ExtResource("4_mppop")]
+position = Vector2(686, 417)
+resource_name = "food"
+
+[node name="ResourceArea2" parent="Map/FoodAreas" instance=ExtResource("4_mppop")]
+position = Vector2(-212, 258)
+resource_name = "food"
+
+[node name="ResourceArea3" parent="Map/FoodAreas" instance=ExtResource("4_mppop")]
+position = Vector2(804, -619)
+resource_name = "food"
+
+[node name="ResourceArea4" parent="Map/FoodAreas" instance=ExtResource("4_mppop")]
+position = Vector2(1712, 1185)
+resource_name = "food"
+
+[node name="ResourceArea5" parent="Map/FoodAreas" instance=ExtResource("4_mppop")]
+position = Vector2(1223, -72)
+scale = Vector2(2, 2)
+resource_name = "energy"
+isDestroyable = false
+
+[node name="MainCharacter" type="CharacterBody2D" parent="Map"]
+position = Vector2(-752, 63)
+motion_mode = 1
+script = ExtResource("1_xurvx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/MainCharacter"]
+shape = SubResource("RectangleShape2D_pmgx0")
+
+[node name="Icon" type="Sprite2D" parent="Map/MainCharacter"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_385m5")
+
+[node name="Camera2D" type="Camera2D" parent="Map/MainCharacter"]
+zoom = Vector2(0.705, 0.705)
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4_brpja")
+
+[node name="Timer" type="Timer" parent="GameManager"]
+wait_time = 0.1
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("5_yiiw1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+offset_right = 53.0
+offset_bottom = 50.0
+
+[node name="SizeHBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SizeStaticLabel" type="Label" parent="CanvasLayer/VBoxContainer/SizeHBoxContainer"]
+layout_mode = 2
+text = "Size:"
+
+[node name="SizeVarLabel" type="Label" parent="CanvasLayer/VBoxContainer/SizeHBoxContainer"]
+layout_mode = 2
+
+[node name="EnergyBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="EnergyStaticLabel" type="Label" parent="CanvasLayer/VBoxContainer/EnergyBoxContainer"]
+layout_mode = 2
+text = "Energy:"
+
+[node name="EnergyVarLabel" type="Label" parent="CanvasLayer/VBoxContainer/EnergyBoxContainer"]
+layout_mode = 2
+
+[node name="FoodHBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="FoodStaticLabel" type="Label" parent="CanvasLayer/VBoxContainer/FoodHBoxContainer"]
+layout_mode = 2
+text = "Food:"
+
+[node name="FoodVarLabel" type="Label" parent="CanvasLayer/VBoxContainer/FoodHBoxContainer"]
+layout_mode = 2
+
+[connection signal="timeout" from="GameManager/Timer" to="GameManager" method="_on_timer_timeout"]
