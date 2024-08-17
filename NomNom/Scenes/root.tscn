@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ckf5eex11dify" path="res://NomNom/Assets/Ants/ants_diagonal.png" id="4_p2055"]
 [ext_resource type="Texture2D" uid="uid://cucems0pm0ux3" path="res://NomNom/Assets/Ants/ants.png" id="4_vyjww"]
 [ext_resource type="Script" path="res://NomNom/Scripts/canvas_layer.gd" id="5_yiiw1"]
-[ext_resource type="Script" path="res://NomNom/Scripts/ant_npc.gd" id="6_ra0rp"]
+[ext_resource type="PackedScene" uid="uid://djbs4f5uaf617" path="res://NomNom/Scenes/ant_npc.tscn" id="6_miyh8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pmgx0"]
 size = Vector2(70, 70)
@@ -281,16 +281,10 @@ bbcode_enabled = true
 sprite_frames = SubResource("SpriteFrames_yprik")
 animation = &"diagonal_3"
 
-[node name="AntNPC" type="CharacterBody2D" parent="Map"]
-script = ExtResource("6_ra0rp")
+[node name="AntNPC" parent="Map" instance=ExtResource("6_miyh8")]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Map/AntNPC"]
-position = Vector2(3, -16)
-sprite_frames = SubResource("SpriteFrames_yprik")
-animation = &"diagonal_4"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/AntNPC"]
-shape = SubResource("RectangleShape2D_pmgx0")
+[node name="Constructions" type="Node2D" parent="Map"]
+position = Vector2(-1243, -145)
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true

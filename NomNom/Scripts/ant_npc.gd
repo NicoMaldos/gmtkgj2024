@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			animated_sprite_2d.stop()
 	elif (self.position - main_character.position).length() < 500:
-			main_character.add_ant_number(1)
+			main_character.add_ant_number(self)
 			colony_member = true
 			
 
