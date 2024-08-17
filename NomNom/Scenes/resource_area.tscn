@@ -1,20 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://wem6t7m0pqey"]
 
 [ext_resource type="Script" path="res://NomNom/Scripts/resource_gain_area.gd" id="1_7l6t4"]
-[ext_resource type="Texture2D" uid="uid://bx7e7ocukimnj" path="res://Other/icon.svg" id="2_8wul5"]
+[ext_resource type="Texture2D" uid="uid://fcijk8i4sf8g" path="res://NomNom/Assets/asdf.webp" id="2_2cr3p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qe8ja"]
 size = Vector2(130, 130)
 
 [node name="ResourceArea" type="Area2D"]
 script = ExtResource("1_7l6t4")
-isDestroyable = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_qe8ja")
 
 [node name="Icon" type="Sprite2D" parent="CollisionShape2D"]
-texture = ExtResource("2_8wul5")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_2cr3p")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -38.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dsnu0y1e4v06s"]
+[gd_scene load_steps=35 format=3 uid="uid://dsnu0y1e4v06s"]
 
 [ext_resource type="Texture2D" uid="uid://begtuo3pyfnnt" path="res://NomNom/Assets/garden_background.png" id="1_okqt0"]
 [ext_resource type="Script" path="res://NomNom/Scripts/main_character.gd" id="1_xurvx"]
@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://ckf5eex11dify" path="res://NomNom/Assets/Ants/ants_diagonal.png" id="4_p2055"]
 [ext_resource type="Texture2D" uid="uid://cucems0pm0ux3" path="res://NomNom/Assets/Ants/ants.png" id="4_vyjww"]
 [ext_resource type="Script" path="res://NomNom/Scripts/canvas_layer.gd" id="5_yiiw1"]
+[ext_resource type="Script" path="res://NomNom/Scripts/ant_npc.gd" id="6_ra0rp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pmgx0"]
+size = Vector2(70, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qqw22"]
 atlas = ExtResource("4_p2055")
@@ -219,9 +223,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pmgx0"]
-size = Vector2(70, 70)
-
 [node name="root" type="Node2D"]
 
 [node name="Map" type="Node2D" parent="."]
@@ -239,11 +240,11 @@ resource_name = "food"
 
 [node name="ResourceArea2" parent="Map/FoodAreas" instance=ExtResource("4_mppop")]
 position = Vector2(-212, 258)
-resource_name = "food"
+resource_name = "energy"
 
 [node name="ResourceArea3" parent="Map/FoodAreas" instance=ExtResource("4_mppop")]
 position = Vector2(804, -619)
-resource_name = "food"
+resource_name = "energy"
 
 [node name="ResourceArea4" parent="Map/FoodAreas" instance=ExtResource("4_mppop")]
 position = Vector2(1712, 1185)
@@ -252,17 +253,16 @@ resource_name = "food"
 [node name="ResourceArea5" parent="Map/FoodAreas" instance=ExtResource("4_mppop")]
 position = Vector2(1223, -72)
 scale = Vector2(2, 2)
-resource_name = "energy"
-isDestroyable = false
+resource_name = "food"
+
+[node name="ResourceArea6" parent="Map/FoodAreas" instance=ExtResource("4_mppop")]
+position = Vector2(559, 706)
 
 [node name="MainCharacter" type="CharacterBody2D" parent="Map"]
+unique_name_in_owner = true
 position = Vector2(-752, 63)
 motion_mode = 1
 script = ExtResource("1_xurvx")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Map/MainCharacter"]
-sprite_frames = SubResource("SpriteFrames_yprik")
-animation = &"diagonal_4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Map/MainCharacter"]
 shape = SubResource("RectangleShape2D_pmgx0")
@@ -276,6 +276,21 @@ offset_top = -60.0
 offset_right = 40.0
 offset_bottom = 40.0
 bbcode_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Map/MainCharacter"]
+sprite_frames = SubResource("SpriteFrames_yprik")
+animation = &"diagonal_3"
+
+[node name="AntNPC" type="CharacterBody2D" parent="Map"]
+script = ExtResource("6_ra0rp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Map/AntNPC"]
+position = Vector2(3, -16)
+sprite_frames = SubResource("SpriteFrames_yprik")
+animation = &"diagonal_4"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/AntNPC"]
+shape = SubResource("RectangleShape2D_pmgx0")
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true

@@ -20,7 +20,6 @@ func _on_body_exited(body: Node2D) -> void:
 	should_deplete = false
 	game_manager.activate_resource('')
 
-
 func _physics_process(delta: float) -> void:
 	if should_deplete and isDestroyable:
 		var scale_modifier = Vector2.ONE - (game_manager.SCALE_RATIO*10)
