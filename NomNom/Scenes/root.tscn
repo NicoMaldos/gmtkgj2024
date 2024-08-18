@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dsnu0y1e4v06s"]
+[gd_scene load_steps=36 format=3 uid="uid://dsnu0y1e4v06s"]
 
 [ext_resource type="Texture2D" uid="uid://begtuo3pyfnnt" path="res://NomNom/Assets/garden_background.png" id="1_okqt0"]
 [ext_resource type="Script" path="res://NomNom/Scripts/main_character.gd" id="1_xurvx"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cucems0pm0ux3" path="res://NomNom/Assets/Ants/ants.png" id="4_vyjww"]
 [ext_resource type="Script" path="res://NomNom/Scripts/canvas_layer.gd" id="5_yiiw1"]
 [ext_resource type="PackedScene" uid="uid://djbs4f5uaf617" path="res://NomNom/Scenes/ant_npc.tscn" id="6_miyh8"]
+[ext_resource type="PackedScene" uid="uid://id7esgap85qk" path="res://NomNom/Scenes/spawner.tscn" id="9_tve12"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pmgx0"]
 size = Vector2(70, 70)
@@ -281,10 +282,12 @@ bbcode_enabled = true
 sprite_frames = SubResource("SpriteFrames_yprik")
 animation = &"diagonal_3"
 
-[node name="AntNPC" parent="Map" instance=ExtResource("6_miyh8")]
-
 [node name="Constructions" type="Node2D" parent="Map"]
 position = Vector2(-1243, -145)
+
+[node name="NPC" type="Node2D" parent="Map"]
+
+[node name="AntNPC" parent="Map/NPC" instance=ExtResource("6_miyh8")]
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
@@ -330,5 +333,7 @@ text = "Food:"
 
 [node name="FoodVarLabel" type="Label" parent="CanvasLayer/VBoxContainer/FoodHBoxContainer"]
 layout_mode = 2
+
+[node name="Spawner" parent="." instance=ExtResource("9_tve12")]
 
 [connection signal="timeout" from="GameManager/Timer" to="GameManager" method="_on_timer_timeout"]
