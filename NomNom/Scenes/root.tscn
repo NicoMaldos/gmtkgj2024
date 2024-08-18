@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dsnu0y1e4v06s"]
+[gd_scene load_steps=38 format=3 uid="uid://dsnu0y1e4v06s"]
 
 [ext_resource type="Texture2D" uid="uid://begtuo3pyfnnt" path="res://NomNom/Assets/garden_background.png" id="1_okqt0"]
 [ext_resource type="Script" path="res://NomNom/Scripts/main_character.gd" id="1_xurvx"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://cucems0pm0ux3" path="res://NomNom/Assets/Ants/ants.png" id="4_vyjww"]
 [ext_resource type="Script" path="res://NomNom/Scripts/canvas_layer.gd" id="5_yiiw1"]
 [ext_resource type="PackedScene" uid="uid://djbs4f5uaf617" path="res://NomNom/Scenes/ant_npc.tscn" id="6_miyh8"]
+[ext_resource type="PackedScene" uid="uid://xf27oy1lhr8s" path="res://NomNom/Scenes/fail_screen.tscn" id="8_dtgin"]
+[ext_resource type="AudioStream" uid="uid://wdyrjfehsks8" path="res://NomNom/sfx/bite.mp3" id="8_srm78"]
 [ext_resource type="PackedScene" uid="uid://id7esgap85qk" path="res://NomNom/Scenes/spawner.tscn" id="9_tve12"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pmgx0"]
@@ -241,11 +243,11 @@ resource_name = "food"
 
 [node name="ResourceArea2" parent="Map/FoodAreas" instance=ExtResource("4_mppop")]
 position = Vector2(-212, 258)
-resource_name = "energy"
+resource_name = "food"
 
 [node name="ResourceArea3" parent="Map/FoodAreas" instance=ExtResource("4_mppop")]
 position = Vector2(804, -619)
-resource_name = "energy"
+resource_name = "food"
 
 [node name="ResourceArea4" parent="Map/FoodAreas" instance=ExtResource("4_mppop")]
 position = Vector2(1712, 1185)
@@ -254,10 +256,7 @@ resource_name = "food"
 [node name="ResourceArea5" parent="Map/FoodAreas" instance=ExtResource("4_mppop")]
 position = Vector2(1223, -72)
 scale = Vector2(2, 2)
-resource_name = "food"
-
-[node name="ResourceArea6" parent="Map/FoodAreas" instance=ExtResource("4_mppop")]
-position = Vector2(559, 706)
+resource_name = "energy"
 
 [node name="MainCharacter" type="CharacterBody2D" parent="Map"]
 unique_name_in_owner = true
@@ -334,6 +333,14 @@ text = "Food:"
 [node name="FoodVarLabel" type="Label" parent="CanvasLayer/VBoxContainer/FoodHBoxContainer"]
 layout_mode = 2
 
+[node name="Fail screen" parent="CanvasLayer" instance=ExtResource("8_dtgin")]
+visible = false
+
 [node name="Spawner" parent="." instance=ExtResource("9_tve12")]
+
+[node name="Node" type="Node" parent="."]
+
+[node name="eating sfx" type="AudioStreamPlayer2D" parent="Node"]
+stream = ExtResource("8_srm78")
 
 [connection signal="timeout" from="GameManager/Timer" to="GameManager" method="_on_timer_timeout"]

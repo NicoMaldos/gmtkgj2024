@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="GMTK2024"
-run/main_scene="res://NomNom/Scenes/root.tscn"
+run/main_scene="res://NomNom/Scenes/menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://Other/icon.svg"
 
 [autoload]
 
 GameManager="*res://NomNom/Scripts/game_manager.gd"
+Events="*res://NomNom/Scripts/Events.gd"
 
 [input]
 

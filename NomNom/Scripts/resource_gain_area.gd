@@ -19,6 +19,7 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_body_exited(body: Node2D) -> void:
 	should_deplete = false
 	game_manager.activate_resource('')
+	game_manager.deactivate_resource(resource_name)
 
 func _physics_process(delta: float) -> void:
 	if should_deplete and isDestroyable:

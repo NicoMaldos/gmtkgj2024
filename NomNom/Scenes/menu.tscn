@@ -1,0 +1,89 @@
+[gd_scene load_steps=9 format=3 uid="uid://dxnm87328odh0"]
+
+[ext_resource type="Script" path="res://NomNom/Scripts/menu.gd" id="1_6uit8"]
+[ext_resource type="Texture2D" uid="uid://pt60meebx48" path="res://NomNom/Assets/objects/main menu.png" id="1_ia4cu"]
+[ext_resource type="Texture2D" uid="uid://n6sdyqdowo8j" path="res://NomNom/Assets/fonts/Buttons Pixel Animation Pack/Buttons Pixel Animation Pack/restart/72px/restart01.png" id="2_a56mw"]
+[ext_resource type="FontFile" uid="uid://d4j7812x6q6uo" path="res://NomNom/Assets/fonts/karma-suture/KarmaSuture.ttf" id="3_qyocc"]
+[ext_resource type="FontFile" uid="uid://cbv0yho8b1ay5" path="res://NomNom/Assets/fonts/karma-future/KarmaFuture.ttf" id="4_panhm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_orokr"]
+font = ExtResource("3_qyocc")
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_fnnet"]
+font = ExtResource("3_qyocc")
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_nxvdx"]
+font = ExtResource("4_panhm")
+font_size = 50
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6uit8")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.9055, 16.1721)
+
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer"]
+position = Vector2(19.2006, 18.4267)
+scale = Vector2(0.023, 0.04)
+texture = ExtResource("1_ia4cu")
+
+[node name="play" type="Button" parent="."]
+layout_mode = 2
+offset_left = 486.0
+offset_top = 170.0
+offset_right = 638.0
+offset_bottom = 250.0
+scale = Vector2(0.923123, 0.983824)
+icon = ExtResource("2_a56mw")
+flat = true
+
+[node name="Label" type="Label" parent="play"]
+layout_mode = 0
+offset_left = 48.7476
+offset_top = 20.3288
+offset_right = 92.7476
+offset_bottom = 51.3288
+scale = Vector2(1.22375, 0.974561)
+text = "Play"
+label_settings = SubResource("LabelSettings_orokr")
+
+[node name="options" type="Button" parent="."]
+layout_mode = 0
+offset_left = 487.0
+offset_top = 239.0
+offset_right = 639.0
+offset_bottom = 319.0
+scale = Vector2(0.931372, 0.942075)
+icon = ExtResource("2_a56mw")
+flat = true
+
+[node name="Label" type="Label" parent="options"]
+layout_mode = 0
+offset_left = 37.579
+offset_top = 21.2297
+offset_right = 118.579
+offset_bottom = 52.2297
+text = "Options"
+label_settings = SubResource("LabelSettings_fnnet")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 285.0
+offset_top = 86.0
+offset_right = 820.0
+offset_bottom = 155.0
+text = "Antrepeneur Builder"
+label_settings = SubResource("LabelSettings_nxvdx")
+
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]

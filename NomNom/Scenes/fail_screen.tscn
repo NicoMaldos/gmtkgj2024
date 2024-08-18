@@ -1,0 +1,119 @@
+[gd_scene load_steps=9 format=3 uid="uid://xf27oy1lhr8s"]
+
+[ext_resource type="Script" path="res://NomNom/Scripts/fail_screen.gd" id="1_2ed6p"]
+[ext_resource type="Texture2D" uid="uid://hk11ga1ivktd" path="res://NomNom/Assets/ants/Newspaper.png" id="2_2qjpn"]
+[ext_resource type="FontFile" uid="uid://d4j7812x6q6uo" path="res://NomNom/Assets/fonts/karma-suture/KarmaSuture.ttf" id="3_rydk5"]
+[ext_resource type="Texture2D" uid="uid://n6sdyqdowo8j" path="res://NomNom/Assets/fonts/Buttons Pixel Animation Pack/Buttons Pixel Animation Pack/restart/72px/restart01.png" id="4_rpb8d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rdfcn"]
+font = ExtResource("3_rydk5")
+font_size = 55
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_njatq"]
+font = ExtResource("3_rydk5")
+font_size = 17
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_aeu7c"]
+font = ExtResource("3_rydk5")
+font_size = 22
+outline_color = Color(0.976471, 0, 0.184314, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6om64"]
+font = ExtResource("3_rydk5")
+font_size = 25
+outline_color = Color(0.137255, 0.388235, 1, 0)
+shadow_size = 0
+shadow_color = Color(0, 0.901961, 0.341176, 0)
+
+[node name="Fail screen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_2ed6p")
+
+[node name="You lost" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 646.0
+color = Color(0.909804, 0.231373, 0.231373, 0.792157)
+metadata/_edit_use_anchors_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="You lost"]
+layout_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="You lost/CenterContainer"]
+modulate = Color(0.996078, 0.878431, 0.862745, 1)
+light_mask = 2
+visibility_layer = 2
+position = Vector2(395, 351)
+texture = ExtResource("2_2qjpn")
+
+[node name="Label" type="Label" parent="You lost"]
+layout_mode = 2
+offset_left = 207.0
+offset_top = 78.0
+offset_right = 616.0
+offset_bottom = 142.0
+rotation = -0.0213557
+text = "CAPITALISM FAILS!"
+label_settings = SubResource("LabelSettings_rdfcn")
+
+[node name="Label2" type="Label" parent="You lost"]
+layout_mode = 2
+offset_left = 376.0
+offset_top = 182.0
+offset_right = 627.0
+offset_bottom = 380.0
+rotation = -0.0145246
+text = "An ex camarade decided to embark
+on a foolish mission of greed and
+excess. Alas, their flooded ideas
+lead him to his doom. 
+This is but a reminder of the
+the greatness of our Supreme
+Leader!
+
+What a joy to be an ant!"
+label_settings = SubResource("LabelSettings_njatq")
+
+[node name="Menu" type="Button" parent="You lost"]
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 792.0
+offset_top = 314.0
+offset_right = -206.0
+offset_bottom = -252.0
+icon = ExtResource("4_rpb8d")
+flat = true
+
+[node name="Label" type="Label" parent="You lost/Menu"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 25.0
+offset_right = 179.0
+offset_bottom = 62.0
+text = "Back to Menu"
+label_settings = SubResource("LabelSettings_aeu7c")
+
+[node name="Retry" type="Button" parent="You lost"]
+layout_mode = 2
+offset_left = 794.0
+offset_top = 195.0
+offset_right = 946.0
+offset_bottom = 275.0
+icon = ExtResource("4_rpb8d")
+flat = true
+
+[node name="Label" type="Label" parent="You lost/Retry"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 20.0
+offset_right = 113.0
+offset_bottom = 57.0
+text = "Retry"
+label_settings = SubResource("LabelSettings_6om64")
+
+[connection signal="pressed" from="You lost/Menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="You lost/Retry" to="." method="_on_retry_pressed"]
