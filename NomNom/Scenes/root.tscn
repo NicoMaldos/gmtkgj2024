@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dsnu0y1e4v06s"]
+[gd_scene load_steps=39 format=3 uid="uid://dsnu0y1e4v06s"]
 
 [ext_resource type="Texture2D" uid="uid://begtuo3pyfnnt" path="res://NomNom/Assets/garden_background.png" id="1_okqt0"]
 [ext_resource type="Script" path="res://NomNom/Scripts/main_character.gd" id="1_xurvx"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cucems0pm0ux3" path="res://NomNom/Assets/Ants/ants.png" id="4_vyjww"]
 [ext_resource type="Script" path="res://NomNom/Scripts/canvas_layer.gd" id="5_yiiw1"]
 [ext_resource type="PackedScene" uid="uid://djbs4f5uaf617" path="res://NomNom/Scenes/ant_npc.tscn" id="6_miyh8"]
+[ext_resource type="PackedScene" uid="uid://dubbfojqsls1u" path="res://NomNom/Scenes/building.tscn" id="7_1q1gm"]
 [ext_resource type="PackedScene" uid="uid://xf27oy1lhr8s" path="res://NomNom/Scenes/fail_screen.tscn" id="8_dtgin"]
 [ext_resource type="AudioStream" uid="uid://wdyrjfehsks8" path="res://NomNom/sfx/bite.mp3" id="8_srm78"]
 [ext_resource type="PackedScene" uid="uid://id7esgap85qk" path="res://NomNom/Scenes/spawner.tscn" id="9_tve12"]
@@ -281,12 +282,34 @@ bbcode_enabled = true
 sprite_frames = SubResource("SpriteFrames_yprik")
 animation = &"diagonal_3"
 
-[node name="Constructions" type="Node2D" parent="Map"]
+[node name="Buildings" type="Node2D" parent="Map"]
 position = Vector2(-1243, -145)
+
+[node name="Bar" parent="Map/Buildings" instance=ExtResource("7_1q1gm")]
+position = Vector2(-412, 638)
+building_type = "Bar"
+
+[node name="Factory" parent="Map/Buildings" instance=ExtResource("7_1q1gm")]
+position = Vector2(17, 1221)
+building_type = "Factory"
+
+[node name="Brothel" parent="Map/Buildings" instance=ExtResource("7_1q1gm")]
+position = Vector2(927, 1134)
+building_type = "Brothel"
 
 [node name="NPC" type="Node2D" parent="Map"]
 
 [node name="AntNPC" parent="Map/NPC" instance=ExtResource("6_miyh8")]
+position = Vector2(-43, 188)
+
+[node name="AntNPC2" parent="Map/NPC" instance=ExtResource("6_miyh8")]
+position = Vector2(-219, 40)
+
+[node name="AntNPC3" parent="Map/NPC" instance=ExtResource("6_miyh8")]
+position = Vector2(-345, -82)
+
+[node name="AntNPC4" parent="Map/NPC" instance=ExtResource("6_miyh8")]
+position = Vector2(-260, 232)
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true

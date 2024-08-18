@@ -35,8 +35,6 @@ func remove_ant():
 	ant_count_message.append_text(str(ant_number) + "[img=16x16]res://NomNom/Assets/Ants/single_ant.png[/img]")
 	var deleted_ant = ant_array.pop_back()
 	deleted_ant.queue_free()
-	#contruction.add_ant()
-	
 	
 func ant_animation(input_direction):
 	if input_direction.x < 0 and input_direction.y < 0:
