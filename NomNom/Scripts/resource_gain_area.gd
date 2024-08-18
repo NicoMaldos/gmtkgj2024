@@ -3,10 +3,11 @@ extends Area2D
 @onready var game_manager = %GameManager
 @onready var title_label: Label = $Label
 @onready var collisionShape = $CollisionShape2D
-@onready var full_bush = $BushCollision/Full
-@onready var medium_bush = $BushCollision/Medium
-@onready var low_bush = $BushCollision/Low
-@onready var empty_bush = $BushCollision/Empty
+@onready var full_bush = $Collision/Full
+@onready var medium_bush = $Collision/Medium
+@onready var low_bush = $Collision/Low
+@onready var empty_bush = $Collision/Empty
+@onready var mushroom = $Collision/Mushroom
 
 @export var resource_name = ''
 @export var isDestroyable = false
@@ -17,6 +18,11 @@ var ants_inside = 0
 
 func _ready() -> void:
 	title_label.text = resource_name
+	if resource_name == "Food":
+		full_bush.show()
+	elif resource_name == "Energy":
+		mushroom.show()
+	
 
 func _on_body_entered(body: Node2D) -> void:
 	if actual_food > 0:
@@ -34,7 +40,7 @@ func _on_body_exited(body: Node2D) -> void:
 			game_manager.deactivate_resource(resource_name)
 
 func _physics_process(delta: float) -> void:
-	if should_deplete:
+	if should_deplete and resource_name == "Food":
 		actual_food -= 1
 		if actual_food == 60:
 			full_bush.hide()

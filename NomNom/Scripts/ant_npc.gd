@@ -4,12 +4,13 @@ extends CharacterBody2D
 const SPEED = 300.0
 var input_direction := Vector2.ZERO
 var colony_member = false
-@onready var game_manager = %GameManager
+@onready var root = preload("res://NomNom/Scenes/root.tscn").instantiate()
 @onready var animated_sprite_2d = $AnimatedSprite2D
-@onready var main_character = %MainCharacter
+@onready var main_character = get_node("/root/root/Map/MainCharacter")
 
 func _physics_process(delta: float) -> void:
 	input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	print(main_character)
 	
 	if colony_member:
 		if (self.position - main_character.position).length() > 200:

@@ -240,28 +240,29 @@ texture = ExtResource("1_okqt0")
 
 [node name="ResourceArea" parent="Map/FoodAreas" instance=ExtResource("4_mppop")]
 position = Vector2(686, 417)
-resource_name = "food"
+resource_name = "Food"
 
 [node name="ResourceArea2" parent="Map/FoodAreas" instance=ExtResource("4_mppop")]
 position = Vector2(-212, 258)
-resource_name = "food"
+resource_name = "Food"
 
 [node name="ResourceArea3" parent="Map/FoodAreas" instance=ExtResource("4_mppop")]
 position = Vector2(804, -619)
-resource_name = "food"
+resource_name = "Food"
 
 [node name="ResourceArea4" parent="Map/FoodAreas" instance=ExtResource("4_mppop")]
 position = Vector2(1712, 1185)
-resource_name = "food"
+resource_name = "Food"
 
 [node name="ResourceArea5" parent="Map/FoodAreas" instance=ExtResource("4_mppop")]
 position = Vector2(1223, -72)
 scale = Vector2(2, 2)
-resource_name = "energy"
+resource_name = "Energy"
 
 [node name="MainCharacter" type="CharacterBody2D" parent="Map"]
 unique_name_in_owner = true
 position = Vector2(-752, 63)
+collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_xurvx")
 

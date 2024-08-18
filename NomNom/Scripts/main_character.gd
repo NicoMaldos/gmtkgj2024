@@ -19,9 +19,6 @@ func _physics_process(delta: float) -> void:
 	velocity = input_direction * SPEED
 	ant_animation(input_direction)
 	move_and_slide()
-	if game_manager.active_resource == 'energy':
-		apply_scale(Vector2.ONE + game_manager.SCALE_RATIO)
-		camera_2d.set_zoom(camera_2d.zoom * (Vector2.ONE - game_manager.SCALE_RATIO))
 
 func add_ant_number(npc_ant):
 	ant_count_message.clear()

@@ -25,7 +25,6 @@ var brothel_activated = false
 
 @onready var root = $".."
 
-var size_actual = 1.0
 var active_resource = ''
 
 
@@ -45,7 +44,7 @@ func activate_resource(resource: String)-> void:
 	active_resource = resource
 	
 func deactivate_resource(resource: String)-> void:
-	if resource == 'food':
+	if resource == 'Food':
 		food_eat_tick = 1		
 	
 func decrease_resources() -> void:
@@ -64,7 +63,7 @@ func decrease_resources() -> void:
 
 
 func increase_resources() -> void:
-	if active_resource == 'food':
+	if active_resource == 'Food':
 		food_actual += 1
 		food_eat_tick -= 1
 		if food_eat_tick <= 0:
@@ -72,10 +71,9 @@ func increase_resources() -> void:
 			food_eat_tick = FOOD_EAT_TICKS
 		
 		
-	if active_resource == 'energy':
+	if active_resource == 'Energy':
 		energy_actual += 1
 		food_actual -= 0.5
-		size_actual += 0.1
 	
 	if bar_activated:
 		energy_actual += 1
