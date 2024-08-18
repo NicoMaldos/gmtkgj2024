@@ -311,6 +311,24 @@ position = Vector2(-345, -82)
 [node name="AntNPC4" parent="Map/NPC" instance=ExtResource("6_miyh8")]
 position = Vector2(-260, 232)
 
+[node name="AntNPC5" parent="Map/NPC" instance=ExtResource("6_miyh8")]
+position = Vector2(44, 35)
+
+[node name="AntNPC6" parent="Map/NPC" instance=ExtResource("6_miyh8")]
+position = Vector2(128, 345)
+
+[node name="AntNPC7" parent="Map/NPC" instance=ExtResource("6_miyh8")]
+position = Vector2(-55, -26)
+
+[node name="AntNPC8" parent="Map/NPC" instance=ExtResource("6_miyh8")]
+position = Vector2(199, 138)
+
+[node name="AntNPC9" parent="Map/NPC" instance=ExtResource("6_miyh8")]
+position = Vector2(-191, 425)
+
+[node name="AntNPC10" parent="Map/NPC" instance=ExtResource("6_miyh8")]
+position = Vector2(-27, 355)
+
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("4_brpja")
@@ -326,14 +344,14 @@ script = ExtResource("5_yiiw1")
 offset_right = 53.0
 offset_bottom = 50.0
 
-[node name="SizeHBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
+[node name="AntsHBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 
-[node name="SizeStaticLabel" type="Label" parent="CanvasLayer/VBoxContainer/SizeHBoxContainer"]
+[node name="AntsStaticLabel" type="Label" parent="CanvasLayer/VBoxContainer/AntsHBoxContainer"]
 layout_mode = 2
-text = "Size:"
+text = "Ants:"
 
-[node name="SizeVarLabel" type="Label" parent="CanvasLayer/VBoxContainer/SizeHBoxContainer"]
+[node name="AntsVarLabel" type="Label" parent="CanvasLayer/VBoxContainer/AntsHBoxContainer"]
 layout_mode = 2
 
 [node name="EnergyBoxContainer" type="HBoxContainer" parent="CanvasLayer/VBoxContainer"]
