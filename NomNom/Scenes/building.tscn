@@ -112,10 +112,10 @@ texture = ExtResource("1_71qbx")
 
 [node name="Label" type="Label" parent="Bar/Sprite2D"]
 visible = false
-offset_left = -48.0
-offset_top = -304.0
-offset_right = 41.0
-offset_bottom = -281.0
+offset_left = -55.0
+offset_top = -263.095
+offset_right = 34.0
+offset_bottom = -240.095
 scale = Vector2(2, 2)
 text = "+ 10 Energy"
 
@@ -135,10 +135,10 @@ texture = ExtResource("2_ntkrg")
 
 [node name="Label" type="Label" parent="Factory/Sprite2D"]
 visible = false
-offset_left = -48.0
-offset_top = -340.0
-offset_right = 79.0
-offset_bottom = -317.0
+offset_left = -55.0
+offset_top = -263.095
+offset_right = 72.0
+offset_bottom = -240.095
 scale = Vector2(4, 4)
 text = "+ 10 Food"
 
@@ -157,10 +157,10 @@ texture = ExtResource("3_lnhk0")
 
 [node name="Label" type="Label" parent="Brothel/Sprite2D"]
 visible = false
-offset_left = -48.0
-offset_top = -304.0
-offset_right = 6.0
-offset_bottom = -281.0
+offset_left = -55.0
+offset_top = -263.095
+offset_right = -1.0
+offset_bottom = -240.095
 scale = Vector2(2, 2)
 text = "+ 1 Ant"
 
@@ -185,10 +185,10 @@ texture = ExtResource("5_t1idj")
 
 [node name="Label" type="Label" parent="BuildSite/Sprite2D"]
 visible = false
-offset_left = -48.0
-offset_top = -304.0
-offset_right = -2.0
-offset_bottom = -281.0
+offset_left = -55.0
+offset_top = -263.095
+offset_right = -9.0
+offset_bottom = -240.095
 scale = Vector2(2, 2)
 text = "+ ANT"
 
