@@ -4,4 +4,4 @@ extends Control
 
 
 func _on_play_pressed():
-	get_tree().change_scene_to_file("res://NomNom/Scenes/root.tscn")
+	get_tree().change_scene_to_file("res://NomNom/Scenes/video_comunista.tscn")

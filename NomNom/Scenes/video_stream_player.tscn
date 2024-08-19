@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://c6we65plun4s5"]
+
+[ext_resource type="VideoStream" path="res://NomNom/GODOT Comunista.ogv" id="1_c5rqo"]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer"]
+offset_right = 1920.0
+offset_bottom = 1088.0
+size_flags_horizontal = 0
+stream = ExtResource("1_c5rqo")
+autoplay = true
+expand = true
+metadata/_edit_use_anchors_ = true
