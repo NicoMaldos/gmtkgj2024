@@ -10,7 +10,6 @@ var colony_member = false
 
 func _physics_process(delta: float) -> void:
 	input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	print(main_character)
 	
 	if colony_member:
 		if (self.position - main_character.position).length() > 200:

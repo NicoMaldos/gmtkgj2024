@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://wem6t7m0pqey"]
 
 [ext_resource type="Script" path="res://NomNom/Scripts/resource_gain_area.gd" id="1_7l6t4"]
-[ext_resource type="Texture2D" uid="uid://vyw2bdglft65" path="res://NomNom/Assets/tilemap_garden.png" id="2_guamr"]
+[ext_resource type="Texture2D" uid="uid://hm302miicpec" path="res://NomNom/Assets/tilemap_garden.png" id="2_guamr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qe8ja"]
 size = Vector2(131, 101.5)

@@ -20,6 +20,10 @@ config/icon="res://Other/icon.svg"
 GameManager="*res://NomNom/Scripts/game_manager.gd"
 Events="*res://NomNom/Scripts/Events.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [input]
 
 move_left={

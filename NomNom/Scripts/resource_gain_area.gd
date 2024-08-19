@@ -12,7 +12,7 @@ extends Area2D
 @export var resource_name = ''
 @export var isDestroyable = false
 var should_deplete = false
-var actual_food = 80
+var actual_food = 150
 var ants_inside = 0
 
 
@@ -32,20 +32,19 @@ func _on_body_entered(body: Node2D) -> void:
 		
 
 func _on_body_exited(body: Node2D) -> void:
-	if actual_food > 0:
-		ants_inside -= 1
-		if ants_inside == 0:
-			should_deplete = false
-			game_manager.activate_resource('')
-			game_manager.deactivate_resource(resource_name)
+	ants_inside -= 1
+	if ants_inside == 0:
+		should_deplete = false
+		game_manager.activate_resource('')
+		game_manager.deactivate_resource(resource_name)
 
 func _physics_process(delta: float) -> void:
 	if should_deplete and resource_name == "Food":
 		actual_food -= 1
-		if actual_food == 60:
+		if actual_food == 100:
 			full_bush.hide()
 			medium_bush.show()
-		elif actual_food == 20:
+		elif actual_food == 50:
 			medium_bush.hide()
 			low_bush.show()
 		elif actual_food == 0:

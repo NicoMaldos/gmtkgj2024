@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://dubbfojqsls1u"]
 
-[ext_resource type="Texture2D" uid="uid://bbhoi2q1vcfg3" path="res://NomNom/Assets/buildings/bar.png" id="1_71qbx"]
+[ext_resource type="Texture2D" uid="uid://lqayh58ocnat" path="res://NomNom/Assets/buildings/bar.png" id="1_71qbx"]
 [ext_resource type="Script" path="res://NomNom/Scripts/building.gd" id="1_roudv"]
 [ext_resource type="Texture2D" uid="uid://dey6ldsuf726o" path="res://NomNom/Assets/buildings/factory.webp" id="2_ntkrg"]
-[ext_resource type="Texture2D" uid="uid://cg5os0clfqbw3" path="res://NomNom/Assets/buildings/brothel.webp" id="3_lnhk0"]
-[ext_resource type="Texture2D" uid="uid://fcijk8i4sf8g" path="res://NomNom/Assets/asdf.webp" id="5_t1idj"]
+[ext_resource type="Texture2D" uid="uid://tg7p177qsd53" path="res://NomNom/Assets/buildings/brothel.webp" id="3_lnhk0"]
+[ext_resource type="Texture2D" uid="uid://bpe08h1d2horu" path="res://NomNom/Assets/buildings/crane.webp" id="5_wk6qo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0pdmc"]
 size = Vector2(292, 174)
@@ -181,7 +181,7 @@ shape = SubResource("RectangleShape2D_v3s7u")
 
 [node name="Sprite2D" type="Sprite2D" parent="BuildSite"]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_t1idj")
+texture = ExtResource("5_wk6qo")
 
 [node name="Label" type="Label" parent="BuildSite/Sprite2D"]
 visible = false
