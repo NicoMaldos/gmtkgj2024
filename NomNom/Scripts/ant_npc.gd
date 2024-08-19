@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 500.0
 var input_direction := Vector2.ZERO
 var colony_member = false
 @onready var root = preload("res://NomNom/Scenes/root.tscn").instantiate()

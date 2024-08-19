@@ -13,7 +13,7 @@ extends Area2D
 @onready var brothel = get_node("Brothel")
 @onready var build_site = get_node("BuildSite")
 
-const total_ants = 2
+const total_ants = 5
 var actual_ants = 0
 var is_built = false
 

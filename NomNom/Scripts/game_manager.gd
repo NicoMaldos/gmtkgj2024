@@ -54,7 +54,7 @@ func decrease_resources() -> void:
 		energy_actual -= 1
 		energy_ticks_left = ENERGY_TICKS 
 	if food_ticks_left <= 0:
-		food_actual -= 1
+		food_actual -= 1 + main_character.ant_number * 0.5
 		food_ticks_left = FOOD_TICKS
 		
 	if food_actual <= 0 or energy_actual <= 0:
