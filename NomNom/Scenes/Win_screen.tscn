@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://d4l0b4f6vw8jb"]
 
-[ext_resource type="Script" path="res://NomNom/Scripts/fail_screen.gd" id="1_cgvi0"]
+[ext_resource type="Script" path="res://NomNom/Scripts/win_screen.gd" id="1_pa4j2"]
 [ext_resource type="Texture2D" uid="uid://bai75g2f3alr3" path="res://NomNom/Assets/Ants/forbes.png" id="2_qggwd"]
 [ext_resource type="FontFile" uid="uid://d4j7812x6q6uo" path="res://NomNom/Assets/fonts/karma-suture/KarmaSuture.ttf" id="3_fnrno"]
 [ext_resource type="Texture2D" uid="uid://n6sdyqdowo8j" path="res://NomNom/Assets/fonts/Buttons Pixel Animation Pack/Buttons Pixel Animation Pack/restart/72px/restart01.png" id="4_yji8h"]
@@ -21,10 +21,10 @@ outline_color = Color(0.137255, 0.388235, 1, 0)
 shadow_size = 0
 shadow_color = Color(0, 0.901961, 0.341176, 0)
 
-[node name="Fail screen" type="Control"]
+[node name="Win screen" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = ExtResource("1_cgvi0")
+script = ExtResource("1_pa4j2")
 
 [node name="You lost" type="ColorRect" parent="."]
 layout_mode = 0
