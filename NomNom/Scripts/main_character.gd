@@ -10,6 +10,7 @@ var ant_array = []
 @onready var title_label: Label = $Label
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var ant_count_message = $AntCount
+@onready var walking_sfx = $"walking sfx"
 
 func _ready() -> void:
 	ant_count_message.append_text( str(ant_number) + "[img=16x16]res://NomNom/Assets/Ants/single_ant.png[/img]")
@@ -36,6 +37,11 @@ func remove_ant():
 	deleted_ant.queue_free()
 	
 func ant_animation(input_direction):
+	if input_direction != Vector2.ZERO and !walking_sfx.playing:
+		walking_sfx.play() # Reproduce el sonido si el personaje se mueve y el sonido no está ya sonando
+	elif input_direction == Vector2.ZERO and walking_sfx.playing:
+		walking_sfx.stop()
+		
 	if input_direction.x < 0 and input_direction.y < 0:
 		animated_sprite_2d.play("diagonal_1")
 	elif input_direction.x > 0 and input_direction.y < 0:
@@ -54,4 +60,4 @@ func ant_animation(input_direction):
 		animated_sprite_2d.play("down")
 	else:
 		animated_sprite_2d.stop()
-	
+		walking_sfx.stop()

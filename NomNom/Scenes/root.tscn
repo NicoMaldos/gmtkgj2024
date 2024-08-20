@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dsnu0y1e4v06s"]
+[gd_scene load_steps=45 format=3 uid="uid://dsnu0y1e4v06s"]
 
 [ext_resource type="Texture2D" uid="uid://hm302miicpec" path="res://NomNom/Assets/tilemap_garden.png" id="1_f57r5"]
 [ext_resource type="Script" path="res://NomNom/Scripts/main_character.gd" id="1_xurvx"]
@@ -8,10 +8,14 @@
 [ext_resource type="Texture2D" uid="uid://ckf5eex11dify" path="res://NomNom/Assets/Ants/ants_diagonal.png" id="4_p2055"]
 [ext_resource type="Texture2D" uid="uid://cucems0pm0ux3" path="res://NomNom/Assets/Ants/ants.png" id="4_vyjww"]
 [ext_resource type="Script" path="res://NomNom/Scripts/canvas_layer.gd" id="5_yiiw1"]
+[ext_resource type="PackedScene" uid="uid://djbs4f5uaf617" path="res://NomNom/Scenes/ant_npc.tscn" id="6_miyh8"]
 [ext_resource type="PackedScene" uid="uid://dubbfojqsls1u" path="res://NomNom/Scenes/building.tscn" id="7_1q1gm"]
+[ext_resource type="AudioStream" uid="uid://djo3ltl4jgmog" path="res://NomNom/sfx/walking on grass...mp3" id="7_njowo"]
 [ext_resource type="PackedScene" uid="uid://xf27oy1lhr8s" path="res://NomNom/Scenes/fail_screen.tscn" id="8_dtgin"]
+[ext_resource type="AudioStream" uid="uid://1mfn778bc4yd" path="res://NomNom/sfx/Construction.mp3" id="8_f5l26"]
 [ext_resource type="AudioStream" uid="uid://wdyrjfehsks8" path="res://NomNom/sfx/bite.mp3" id="8_srm78"]
 [ext_resource type="PackedScene" uid="uid://id7esgap85qk" path="res://NomNom/Scenes/spawner.tscn" id="9_tve12"]
+[ext_resource type="AudioStream" uid="uid://bou05vsdaieo8" path="res://NomNom/sfx/Snoring.mp3" id="14_ba0ao"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2s8dj"]
 texture = ExtResource("1_f57r5")
@@ -510,6 +514,9 @@ bbcode_enabled = true
 sprite_frames = SubResource("SpriteFrames_yprik")
 animation = &"diagonal_3"
 
+[node name="walking sfx" type="AudioStreamPlayer2D" parent="Map/MainCharacter"]
+stream = ExtResource("7_njowo")
+
 [node name="Buildings" type="Node2D" parent="Map"]
 position = Vector2(-1243, -145)
 
@@ -524,6 +531,10 @@ building_type = "Factory"
 [node name="Brothel" parent="Map/Buildings" instance=ExtResource("7_1q1gm")]
 position = Vector2(-1519, 1527)
 building_type = "Brothel"
+
+[node name="construction sfx" type="AudioStreamPlayer2D" parent="Map/Buildings"]
+stream = ExtResource("8_f5l26")
+volume_db = -7.732
 
 [node name="NPC" type="Node2D" parent="Map"]
 
@@ -581,6 +592,10 @@ visible = false
 
 [node name="eating sfx" type="AudioStreamPlayer2D" parent="Node"]
 stream = ExtResource("8_srm78")
+
+[node name="sleeping sfx" type="AudioStreamPlayer2D" parent="Node"]
+stream = ExtResource("14_ba0ao")
+volume_db = 2.811
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 color = Color(1, 1, 1, 0.105882)

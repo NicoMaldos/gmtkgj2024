@@ -148,6 +148,7 @@ libraries = {
 }
 
 [node name="Brothel" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_v3s7u")
 
 [node name="Sprite2D" type="Sprite2D" parent="Brothel"]
@@ -176,7 +177,6 @@ offset_bottom = -118.0
 horizontal_alignment = 1
 
 [node name="BuildSite" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_v3s7u")
 
 [node name="Sprite2D" type="Sprite2D" parent="BuildSite"]

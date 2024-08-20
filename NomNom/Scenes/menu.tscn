@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dxnm87328odh0"]
+[gd_scene load_steps=8 format=3 uid="uid://dxnm87328odh0"]
 
 [ext_resource type="Script" path="res://NomNom/Scripts/menu.gd" id="1_6uit8"]
-[ext_resource type="Texture2D" uid="uid://pt60meebx48" path="res://NomNom/Assets/objects/main menu.png" id="1_ia4cu"]
 [ext_resource type="Texture2D" uid="uid://n6sdyqdowo8j" path="res://NomNom/Assets/fonts/Buttons Pixel Animation Pack/Buttons Pixel Animation Pack/restart/72px/restart01.png" id="2_a56mw"]
+[ext_resource type="Texture2D" uid="uid://mr6prhsbindf" path="res://NomNom/Assets/fonts/karma-suture/BACkground.png" id="2_d280j"]
 [ext_resource type="FontFile" uid="uid://d4j7812x6q6uo" path="res://NomNom/Assets/fonts/karma-suture/KarmaSuture.ttf" id="3_qyocc"]
-[ext_resource type="FontFile" uid="uid://cbv0yho8b1ay5" path="res://NomNom/Assets/fonts/karma-future/KarmaFuture.ttf" id="4_panhm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_orokr"]
 font = ExtResource("3_qyocc")
@@ -15,8 +14,10 @@ font = ExtResource("3_qyocc")
 font_size = 25
 
 [sub_resource type="LabelSettings" id="LabelSettings_nxvdx"]
-font = ExtResource("4_panhm")
-font_size = 50
+font = ExtResource("3_qyocc")
+font_size = 70
+outline_size = 12
+outline_color = Color(0.215686, 0.352941, 0.360784, 1)
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -34,17 +35,17 @@ offset_bottom = 40.0
 scale = Vector2(28.9055, 16.1721)
 
 [node name="Sprite2D" type="Sprite2D" parent="CenterContainer"]
-position = Vector2(19.2006, 18.4267)
-scale = Vector2(0.023, 0.04)
-texture = ExtResource("1_ia4cu")
+position = Vector2(19.8864, 19.9448)
+scale = Vector2(0.0922822, 0.155288)
+texture = ExtResource("2_d280j")
 
 [node name="play" type="Button" parent="."]
 layout_mode = 2
-offset_left = 486.0
-offset_top = 170.0
-offset_right = 638.0
-offset_bottom = 250.0
-scale = Vector2(0.923123, 0.983824)
+offset_left = 517.0
+offset_top = 257.0
+offset_right = 669.0
+offset_bottom = 337.0
+scale = Vector2(1.21588, 1.26367)
 icon = ExtResource("2_a56mw")
 flat = true
 
@@ -58,32 +59,33 @@ scale = Vector2(1.22375, 0.974561)
 text = "Play"
 label_settings = SubResource("LabelSettings_orokr")
 
-[node name="options" type="Button" parent="."]
+[node name="exit" type="Button" parent="."]
 layout_mode = 0
-offset_left = 487.0
-offset_top = 239.0
-offset_right = 639.0
-offset_bottom = 319.0
-scale = Vector2(0.931372, 0.942075)
+offset_left = 515.0
+offset_top = 347.0
+offset_right = 667.0
+offset_bottom = 427.0
+scale = Vector2(1.26483, 1.23721)
 icon = ExtResource("2_a56mw")
 flat = true
 
-[node name="Label" type="Label" parent="options"]
+[node name="Label" type="Label" parent="exit"]
 layout_mode = 0
 offset_left = 37.579
 offset_top = 21.2297
 offset_right = 118.579
 offset_bottom = 52.2297
-text = "Options"
+text = "  Exit"
 label_settings = SubResource("LabelSettings_fnnet")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 285.0
-offset_top = 86.0
-offset_right = 820.0
-offset_bottom = 155.0
-text = "Antrepeneur Builder"
+offset_left = 403.0
+offset_top = 121.0
+offset_right = 917.0
+offset_bottom = 202.0
+text = "ANTREPENEUR"
 label_settings = SubResource("LabelSettings_nxvdx")
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

@@ -7,6 +7,7 @@ extends Area2D
 @onready var add_energy_animation = $Bar/Sprite2D/Label/AddEnergy
 @onready var add_food_animation = $Factory/Sprite2D/Label/AddFood
 @onready var add_ant_animation = $Brothel/Sprite2D/Label/AddAnt
+@onready var construction_sfx = $"../construction sfx"
 
 @onready var bar = get_node("Bar")
 @onready var factory = get_node("Factory")
@@ -23,10 +24,15 @@ func _ready() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if actual_ants < total_ants:
 		game_manager.use_ants(self)
-
+		
+	if body == main_character:
+		construction_sfx.play()
+	
 func _on_body_exited(body: Node2D) -> void:
 	game_manager.use_ants('')
-
+	if body == main_character:
+		construction_sfx.stop()
+		
 func add_ant():
 	actual_ants += 1
 	if actual_ants < total_ants:
@@ -44,10 +50,13 @@ func add_ant():
 			brothel.show()
 			game_manager.brothel_activated = true
 			
-func play_animation():
+func play_animation():	
 	if building_type == "Bar":
 		add_energy_animation.play("Popup")
+		construction_sfx.play()
 	elif building_type == "Factory":
 		add_food_animation.play("Popup")
+		construction_sfx.play()
 	elif building_type == "Brothel":
 		add_ant_animation.play("Popup")
+		construction_sfx.play()
