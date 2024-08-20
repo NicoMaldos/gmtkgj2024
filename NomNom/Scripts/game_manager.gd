@@ -3,6 +3,7 @@ extends Node
 @onready var eating_sfx = $"../Node/eating sfx"
 @onready var sleeping_sfx = $"../Node/sleeping sfx"
 @onready var fail_screen = $"../CanvasLayer/Fail screen"
+@onready var instructions = $"../CanvasLayer/Instructions"
 @onready var main_character = %MainCharacter
 @onready var bar = $"../Map/Buildings/Bar"
 @onready var factory = $"../Map/Buildings/Factory"
@@ -25,6 +26,7 @@ const FOOD_EAT_TICKS = 5
 var bar_activated = false
 var factory_activated = false
 var brothel_activated = false
+var building_count = 0
 
 
 @onready var root = $".."
@@ -39,12 +41,20 @@ func _ready() -> void:
 	food_ticks_left = FOOD_TICKS
 	energy_gained_tick = 1
 	food_eat_tick = 1
-	
-	Engine.time_scale = 1
+	show_instructions()
 	
 func show_fail_screen():
 	Engine.time_scale = 0
 	fail_screen.show()
+	
+func show_instructions():
+	Engine.time_scale = 0
+	if instructions:
+		instructions.show()
+		
+func close_instructions():
+	Engine.time_scale = 1
+	instructions.queue_free()
 
 func activate_resource(resource: String)-> void:
 	active_resource = resource
@@ -97,7 +107,7 @@ func increase_resources() -> void:
 		factory.play_animation()
 		
 func use_ants(building):
-	if main_character.ant_number > 1:
+	if main_character.ant_number > 0:
 		main_character.remove_ant()
 		building.add_ant()
 	

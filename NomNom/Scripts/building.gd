@@ -8,6 +8,7 @@ extends Area2D
 @onready var add_food_animation = $Factory/Sprite2D/Label/AddFood
 @onready var add_ant_animation = $Brothel/Sprite2D/Label/AddAnt
 @onready var construction_sfx = $"../construction sfx"
+@onready var music_player: AudioStreamPlayer2D = $"../../../Node/MusicPlayer"
 
 @onready var bar = get_node("Bar")
 @onready var factory = get_node("Factory")
@@ -17,6 +18,12 @@ extends Area2D
 const total_ants = 5
 var actual_ants = 0
 var is_built = false
+
+var songs = [
+	"res://NomNom/sfx/Musica de capitalista 2.mp3",
+	"res://NomNom/sfx/Musica de capitalista 3.mp3",
+	"res://NomNom/sfx/Musica de capitalista 4.mp3"
+]
 
 func _ready() -> void:
 	title_label.text = building_type + "0/" + str(total_ants)
@@ -49,6 +56,8 @@ func add_ant():
 		elif building_type == "Brothel":
 			brothel.show()
 			game_manager.brothel_activated = true
+		game_manager.building_count += 1
+		play_next_song()
 			
 func play_animation():	
 	if building_type == "Bar":
@@ -60,3 +69,9 @@ func play_animation():
 	elif building_type == "Brothel":
 		add_ant_animation.play("Popup")
 		construction_sfx.play()
+	construction_sfx.play()
+	
+func play_next_song():
+	if game_manager.building_count - 1 < songs.size(): 
+		music_player.stream = load(songs[game_manager.building_count - 1])
+		music_player.play()

@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 500.0
 var input_direction := Vector2.ZERO
-var ant_number = 1
+var ant_number = 0
 var ant_array = []
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var game_manager = %GameManager
@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void:
 func add_ant_number(npc_ant):
 	ant_count_message.clear()
 	ant_number += 1
-	if ant_number == 30:
+	if ant_number == 25:
 		get_tree().change_scene_to_file("res://NomNom/Scenes/win_screen.tscn")
 	ant_count_message.append_text(str(ant_number) + "[img=16x16]res://NomNom/Assets/Ants/single_ant.png[/img]")
 	ant_array.append(npc_ant)

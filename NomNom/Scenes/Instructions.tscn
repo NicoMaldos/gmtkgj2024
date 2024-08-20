@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1h5nfrlakfn4"]
+
+[ext_resource type="Texture2D" uid="uid://d1f7fka07p8xc" path="res://NomNom/Assets/Ants/Newspaper2.png" id="1_wqd3n"]
+[ext_resource type="FontFile" uid="uid://d4j7812x6q6uo" path="res://NomNom/Assets/fonts/karma-suture/KarmaSuture.ttf" id="3_6348x"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_38tc8"]
+font = ExtResource("3_6348x")
+font_size = 53
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_pqvtq"]
+font = ExtResource("3_6348x")
+font_size = 19
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_w5qgd"]
+font = ExtResource("3_6348x")
+font_size = 30
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Instructions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -60.0
+offset_right = 2.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer"]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(397, 314)
+texture = ExtResource("1_wqd3n")
+
+[node name="Label" type="Label" parent="CenterContainer/Sprite2D"]
+offset_left = -213.0
+offset_top = -278.0
+offset_right = 258.0
+offset_bottom = -214.0
+rotation = -0.0213557
+text = "Foolish Ant Deserts!"
+label_settings = SubResource("LabelSettings_38tc8")
+
+[node name="Label2" type="Label" parent="CenterContainer/Sprite2D"]
+offset_left = -160.0
+offset_top = -173.0
+offset_right = 191.0
+offset_bottom = 27.0
+rotation = -0.0145246
+text = "An ungrateful ant has escaped the colony!
+Sources say he has the mission to recruit
+25 ANTS and make 3 BUILDINGS to
+start a true capitalist society!
+Yet we know he will probably STARVE or FAINT
+trying. Our colony has no rival!
+
+May fate give him what he deserves..."
+label_settings = SubResource("LabelSettings_pqvtq")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_left = 781.0
+offset_top = 271.0
+offset_right = 1051.0
+offset_bottom = 308.0
+text = "Press SPACE to close"
+label_settings = SubResource("LabelSettings_w5qgd")
